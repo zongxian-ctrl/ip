@@ -9,9 +9,8 @@ public class Duke {
         Task[] list = new Task[100];
         int task = 0;
 
-        while (!command.equals("bye")){
-
-            if(command.equals("list")){
+        while (!command.equals("bye")) {
+            if(command.equals("list")) {
                 printLines();
                 System.out.println("Here are the tasks in your list:");
                 for (int i = 1; i <= task ; i++) {
@@ -45,7 +44,7 @@ public class Duke {
         System.out.println("____________________________________________________________");
     }
 
-    public static void printGreeting(){
+    public static void printGreeting() {
         printLines();
         System.out.println("Hello! I'm Duke");
         System.out.println("What can I do for you?");
