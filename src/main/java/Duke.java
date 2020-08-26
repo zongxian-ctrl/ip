@@ -5,11 +5,24 @@ public class Duke {
         greeting();
 
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
+        String command = sc.nextLine();
+        String[] list = new String[100];
+        int task = 0;
 
-        while (!str.equals("bye")){
-            System.out.println(str);
-            str = sc.nextLine();
+        while (!command.equals("bye")){
+
+            if(command.equals("list")){
+                for (int i = 1; i <= task ; i++) {
+                    System.out.println(i + ". " + list[i-1]);
+                }
+            }else{
+                list[task] = command;
+                lines();
+                System.out.println("added: "+ command);
+                lines();
+                task++;
+            }
+            command = sc.nextLine();
         }
 
         bye();
