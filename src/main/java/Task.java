@@ -17,7 +17,6 @@ public class Task {
         System.out.println("[" + getStatusIcon() + "] " + description);
     }
     public String toString() {
-        //System.out.println(num + "." + "[" + getStatusIcon() + "] " + description);
         return "[" + getStatusIcon() + "] " + this.description;
     }
 }
