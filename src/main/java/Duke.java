@@ -46,7 +46,7 @@ public class Duke {
 
     private static int addEvent(Task[] list, int taskCount, String command) {
         String[] event = command.split("/");
-        list[taskCount] = new Event(event[0].replace("event ", ""), event[1].replaceFirst(" ", ": "));
+        list[taskCount] = new Event(event[0].replace("event ", "").trim(), event[1].replaceFirst(" ", ": "));
         taskCount++;
         printAdded(list, taskCount);
         return taskCount;
@@ -54,7 +54,7 @@ public class Duke {
 
     private static int addDeadline(Task[] list, int taskCount, String command) {
         String[] deadline = command.split("/");
-        list[taskCount] = new Deadline(deadline[0].replace("deadline ", ""), deadline[1].replaceFirst(" ", ": "));
+        list[taskCount] = new Deadline(deadline[0].replace("deadline ", "").trim(), deadline[1].replaceFirst(" ", ": "));
         taskCount++;
         printAdded(list, taskCount);
         return taskCount;
@@ -63,7 +63,7 @@ public class Duke {
     private static int addToDo(Task[] list, int taskCount, String command) {
         //String todo = command.substring(5);
         String todo = (command.split(" ", 2)[1]);
-        list[taskCount] = new Todo(todo);
+        list[taskCount] = new Todo(todo.trim());
         taskCount++;
         printAdded(list, taskCount);
         return taskCount;
