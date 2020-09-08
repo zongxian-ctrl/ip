@@ -19,6 +19,6 @@ public class Event extends Task {
     }
 
     public String toString() {
-        return this.category + super.toString() + " (" + at + ")" ;
+        return this.category + super.toString() + " (" + at + ")";
     }
 }

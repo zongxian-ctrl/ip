@@ -18,6 +18,7 @@ public class Task {
         System.out.println("Nice! I've marked this task as done:");
         System.out.println("[" + getStatusIcon() + "] " + description);
     }
+
     public String toString() {
         return "[" + getStatusIcon() + "] " + this.description;
     }
