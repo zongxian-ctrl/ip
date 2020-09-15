@@ -64,8 +64,11 @@ public class Duke {
 
     private static int addToDo(Task[] list, int taskCount, String command) {
         //String todo = command.substring(5);
-        String todo = (command.split(" ", 2)[1]);
-        list[taskCount] = new Todo(todo.trim());
+        String todo = (command.split(" ", 2)[1]).trim();
+        if (todo.isEmpty()) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        list[taskCount] = new Todo(todo);
         taskCount++;
         printAdded(list, taskCount);
         return taskCount;
