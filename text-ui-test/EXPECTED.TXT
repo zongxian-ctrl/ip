@@ -12,6 +12,12 @@ Got it. I've added this task:
   [T][✘] event
 Now you have 2 tasks in the list.
 ____________________________________________________________
+____________________________________________________________
+Here are the tasks in your list:
+1.[T][✘] school
+2.[T][✘] event
+____________________________________________________________
+Invalid command, please enter again
 Invalid command, please enter again
 Invalid command, please enter again
 ____________________________________________________________
