@@ -19,7 +19,18 @@ public class Task {
         System.out.println("[" + getStatusIcon() + "] " + description);
     }
 
+
     public String toString() {
         return "[" + getStatusIcon() + "] " + this.description;
+    }
+
+    public String writeFileFormat() {
+        String status;
+        if (this.isDone) {
+            status = "1";
+        } else {
+            status = "0";
+        }
+        return status + " | " + this.description;
     }
 }
