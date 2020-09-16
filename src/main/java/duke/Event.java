@@ -18,7 +18,13 @@ public class Event extends Task {
         return at;
     }
 
+    @Override
     public String toString() {
         return this.category + super.toString() + " (" + at + ")";
+    }
+
+    @Override
+    public String writeFileFormat() {
+        return category + " | " + super.writeFileFormat() + " | " + at;
     }
 }

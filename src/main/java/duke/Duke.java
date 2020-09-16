@@ -1,16 +1,27 @@
 package duke;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+import java.io.File;
 
 public class Duke {
     private static final int MAX_SIZE = 100;
+    private static final String NAME = "duke.txt";
+    private static final String DIRECTORY = "data";
 
-    public static void main(String[] args) throws IllegalCommandException {
+    public static void main(String[] args) throws IllegalCommandException, IOException {
         Scanner sc = new Scanner(System.in);
         Task[] list = new Task[MAX_SIZE];
         int taskCount = 0;
 
         printGreeting();
+        FileManager file = new FileManager(NAME, DIRECTORY);
+        try {
+            taskCount = file.loadSavedFile(list, taskCount);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         String command = sc.nextLine();
 
         while (!command.equals("bye")) {
@@ -22,15 +33,19 @@ public class Duke {
                     break;
                 case "done":
                     markTaskAsDone(list, command);
+                    file.writeToFile(list, taskCount);
                     break;
                 case "todo":
                     taskCount = addToDo(list, taskCount, command);
+                    file.appendToFile(list[taskCount - 1]);
                     break;
                 case "deadline":
                     taskCount = addDeadline(list, taskCount, command);
+                    file.appendToFile(list[taskCount - 1]);
                     break;
                 case "event":
                     taskCount = addEvent(list, taskCount, command);
+                    file.appendToFile(list[taskCount - 1]);
                     break;
                 default:
                     throw new IllegalCommandException();
@@ -42,6 +57,7 @@ public class Duke {
             }
             command = sc.nextLine();
         }
+        file.writeToFile(list, taskCount);
         printBye();
 
     }
@@ -118,7 +134,7 @@ public class Duke {
 
     private static void printGreeting() {
         printLines();
-        System.out.println("Hello! I'm duke.Duke");
+        System.out.println("Hello! I'm Duke");
         System.out.println("What can I do for you?");
         printLines();
     }
@@ -126,6 +142,5 @@ public class Duke {
     private static void printBye() {
         System.out.println("Bye. Hope to see you again soon!\n");
     }
-
 
 }
