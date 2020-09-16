@@ -12,7 +12,6 @@ public class Duke {
 
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-        //Task[] list = new Task[MAX_SIZE];
         ArrayList<Task> list = new ArrayList<>();
         int taskCount = 0;
 
@@ -94,13 +93,11 @@ public class Duke {
     }
 
     private static int addToDo(ArrayList<Task> list, int taskCount, String command) {
-        //String todo = command.substring(5);
         String todo = (command.split(" ", 2)[1]).trim();
         if (todo.isEmpty()) {
             throw new ArrayIndexOutOfBoundsException();
         }
         list.add(new Todo(todo));
-        //list[taskCount] = new Todo(todo);
         taskCount++;
         printAdded(list, taskCount);
         return taskCount;

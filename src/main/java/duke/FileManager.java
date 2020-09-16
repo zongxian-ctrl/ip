@@ -50,20 +50,14 @@ public class FileManager {
             case "[T]":
                 list.add(new Todo(task[2].trim()));
                 list.get(taskCount).isDone = convertIsDone(task[1].trim());
-                //list[taskCount] = new Todo(task[2].trim());
-                //list[taskCount].isDone = convertIsDone(task[1].trim());
                 break;
             case "[E]":
                 list.add(new Event(task[2].trim(), task[3].trim()));
                 list.get(taskCount).isDone = convertIsDone(task[1].trim());
-//                list[taskCount] = new Event(task[2].trim(), task[3].trim());
-//                list[taskCount].isDone = convertIsDone(task[1].trim());
                 break;
             case "[D]":
                 list.add(new Deadline(task[2].trim(), task[3].trim()));
                 list.get(taskCount).isDone = convertIsDone(task[1].trim());
-//                list[taskCount] = new Deadline(task[2].trim(), task[3].trim());
-//                list[taskCount].isDone = convertIsDone(task[1].trim());
                 break;
             }
             taskCount++;
