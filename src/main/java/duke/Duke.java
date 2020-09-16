@@ -4,14 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.io.File;
 
 public class Duke {
-    private static final int MAX_SIZE = 100;
+
     private static final String NAME = "duke.txt";
     private static final String DIRECTORY = "data";
 
-    public static void main(String[] args) throws IllegalCommandException, IOException {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         //Task[] list = new Task[MAX_SIZE];
         ArrayList<Task> list = new ArrayList<>();

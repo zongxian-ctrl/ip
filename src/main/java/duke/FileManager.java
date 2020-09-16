@@ -26,7 +26,7 @@ public class FileManager {
         }
     }
 
-    private static void createFile() throws FileNotFoundException {
+    private void createFile() throws FileNotFoundException {
         file = new File(fileDirectory);
         if (!file.exists()) {
             try {
@@ -41,7 +41,7 @@ public class FileManager {
         }
     }
 
-    public static int loadSavedFile(ArrayList<Task> list, int taskCount) throws FileNotFoundException {
+    public int loadSavedFile(ArrayList<Task> list, int taskCount) throws FileNotFoundException {
         Scanner s = new Scanner(file);
         while (s.hasNext()) {
             String line = s.nextLine();
@@ -71,7 +71,7 @@ public class FileManager {
         return taskCount;
     }
 
-    public static boolean convertIsDone(String isDone) {
+    public boolean convertIsDone(String isDone) {
         if (isDone.equals("1")) {
             return true;
         } else {
@@ -79,7 +79,7 @@ public class FileManager {
         }
     }
 
-    public static void writeToFile(ArrayList<Task> list, int taskCount) throws IOException {
+    public void writeToFile(ArrayList<Task> list, int taskCount) throws IOException {
         FileWriter fw = new FileWriter(fileDirectory);
         try {
             for (int i = 0; i < taskCount; i++) {
@@ -91,7 +91,7 @@ public class FileManager {
         }
     }
 
-    public static void appendToFile(Task task) throws IOException {
+    public void appendToFile(Task task) throws IOException {
         FileWriter fw = new FileWriter(fileDirectory, true); // create a FileWriter in append mode
         fw.write(task.writeFileFormat() + System.lineSeparator());
         fw.close();
