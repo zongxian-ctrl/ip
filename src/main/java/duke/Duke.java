@@ -1,179 +1,54 @@
 package duke;
 
+import duke.command.ByeCommand;
+import duke.command.Command;
+import duke.parser.Parser;
+import duke.storage.Storage;
+import duke.task.*;
+import duke.ui.Messages;
+import duke.ui.TextUi;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
-import java.util.ArrayList;
 
 public class Duke {
-
-    private static final String NAME = "duke.txt";
-    private static final String DIRECTORY = "data";
+    private static TaskList taskList = new TaskList();
+    private static TextUi ui = new TextUi();
+    private static Storage storage = new Storage();
 
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        ArrayList<Task> list = new ArrayList<>();
-        int taskCount = 0;
+        new Duke().run();
+    }
 
-        printGreeting();
-        FileManager file = new FileManager(NAME, DIRECTORY);
+    public void run() throws IOException {
+        start();
+        runCommandLoopUntilExitCommand();
+        exit();
+    }
+
+    private void start() throws FileNotFoundException {
+        ui.showGreetingMessage();
         try {
-            taskCount = file.loadSavedFile(list, taskCount);
+            storage.loadSavedFile(taskList);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(Messages.MESSAGE_FILE_NOT_FOUND);
         }
-        String command = sc.nextLine();
-
-        while (!command.equals("bye")) {
-            String taskCategory = extractTaskCategory(command);
-            try {
-                switch (taskCategory) {
-                case "list":
-                    printList(list, taskCount);
-                    break;
-                case "done":
-                    markTaskAsDone(list, command);
-                    file.writeToFile(list, taskCount);
-                    break;
-                case "todo":
-                    taskCount = addToDo(list, taskCount, command);
-                    file.appendToFile(list.get(taskCount - 1));
-                    break;
-                case "deadline":
-                    taskCount = addDeadline(list, taskCount, command);
-                    file.appendToFile(list.get(taskCount - 1));
-                    break;
-                case "event":
-                    taskCount = addEvent(list, taskCount, command);
-                    file.appendToFile(list.get(taskCount - 1));
-                    break;
-                case "delete":
-                    taskCount = deleteTask(list, taskCount, command);
-                    file.writeToFile(list, taskCount);
-                    break;
-                default:
-                    throw new IllegalCommandException();
-                }
-            } catch (IllegalCommandException e) {
-                System.out.println("Invalid command, please enter again");
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("The description of " + taskCategory + " cannot be empty.");
-            } catch (IllegalTaskCountException e) {
-                System.out.println("Please select a valid number from 1 onwards");
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("You only have " + taskCount + " tasks in your list");
-            }
-            command = sc.nextLine();
-        }
-        file.writeToFile(list, taskCount);
-        printBye();
-
     }
 
-    private static int addEvent(ArrayList<Task> list, int taskCount, String command) {
-        String[] event = command.split("/");
-        String eventTask = event[0].replace("event ", "").trim();
-        String at = event[1].replaceFirst(" ", ": ");
-        list.add(new Event(eventTask, at));
-        //list[taskCount] = new Event(event[0].replace("event ", "").trim(), event[1].replaceFirst(" ", ": "));
-        taskCount++;
-        printAdded(list, taskCount);
-        return taskCount;
+    private void runCommandLoopUntilExitCommand() throws IOException {
+        Command command;
+        do {
+            String userCommandText = ui.getUserCommand();
+            command = Parser.parseCommand(userCommandText);
+            command.setData(taskList);
+            command.execute();
+            storage.writeToFile(taskList);
+        } while (!ByeCommand.isBye(command));
     }
 
-    private static int addDeadline(ArrayList<Task> list, int taskCount, String command) {
-        String[] deadline = command.split("/");
-        String deadlineTask = deadline[0].replace("deadline ", "").trim();
-        String by = deadline[1].replaceFirst(" ", ": ");
-        list.add(new Deadline(deadlineTask, by));
-        //list[taskCount] = new Deadline(deadline[0].replace("deadline ", "").trim(), deadline[1].replaceFirst(" ", ": "));
-        taskCount++;
-        printAdded(list, taskCount);
-        return taskCount;
-    }
-
-    private static int addToDo(ArrayList<Task> list, int taskCount, String command) {
-        String todo = (command.split(" ", 2)[1]).trim();
-        if (todo.isEmpty()) {
-            throw new ArrayIndexOutOfBoundsException();
-        }
-        list.add(new Todo(todo));
-        taskCount++;
-        printAdded(list, taskCount);
-        return taskCount;
-    }
-
-    private static void markTaskAsDone(ArrayList<Task> list, String command) {
-        String[] parts = command.split(" ");
-        int taskNo = Integer.parseInt(parts[1]) - 1;
-        printLines();
-        list.get(taskNo).markAsDone();
-        printLines();
-    }
-
-    private static int deleteTask(ArrayList<Task> list, int taskCount, String command) throws IllegalTaskCountException {
-        String[] parts = command.split(" ");
-        int taskNo = Integer.parseInt(parts[1]) - 1;
-
-        if (taskNo >= taskCount) {
-            throw new IndexOutOfBoundsException();
-        }
-        if (taskNo < 0) {
-            throw new IllegalTaskCountException();
-        }
-        taskCount--;
-        printLines();
-        System.out.println("Noted. I've remove this task:");
-        System.out.println(list.get(taskNo));
-        list.remove(taskNo);
-        System.out.println("Now you have " + taskCount + " tasks in the list");
-        printLines();
-        return taskCount;
-    }
-
-    private static void printList(ArrayList<Task> list, int taskCount) {
-        printLines();
-        if (taskCount == 0) {
-            System.out.println("You do not have any task in your list currently");
-        } else {
-            System.out.println("Here are the tasks in your list:");
-            for (int i = 1; i <= taskCount; i++) {
-                System.out.println(i + "." + list.get(i - 1));
-            }
-        }
-        printLines();
-    }
-
-    private static String extractTaskCategory(String command) {
-        String[] taskCategory = command.trim().split(" ");
-        return taskCategory[0];
-    }
-
-    private static void printAdded(ArrayList<Task> list, int task) {
-        printLines();
-        System.out.println("Got it. I've added this task:");
-        System.out.println("  " + list.get(task - 1));
-        if (task == 1) {
-            System.out.println("Now you have " + task + " task in the list.");
-        } else {
-            System.out.println("Now you have " + task + " tasks in the list.");
-        }
-        printLines();
-    }
-
-    private static void printLines() {
-        System.out.println("____________________________________________________________");
-    }
-
-    private static void printGreeting() {
-        printLines();
-        System.out.println("Hello! I'm Duke");
-        System.out.println("What can I do for you?");
-        printLines();
-    }
-
-    private static void printBye() {
-        System.out.println("Bye. Hope to see you again soon!\n");
+    private void exit() {
+        ui.showByeMessage();
+        System.exit(0);
     }
 
 }

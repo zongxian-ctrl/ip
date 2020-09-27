@@ -1,12 +1,13 @@
-package duke;
+package duke.task;
 
 public class Todo extends Task {
-    protected String todo;
+    public static final String TODO_CATEGORY = "[T]";
+
     protected String category;
 
     public Todo(String description) {
         super(description);
-        this.category = "[T]";
+        this.category = TODO_CATEGORY;
     }
 
     @Override

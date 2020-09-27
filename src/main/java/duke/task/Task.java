@@ -1,4 +1,4 @@
-package duke;
+package duke.task;
 
 public class Task {
     protected String description;
@@ -13,12 +13,14 @@ public class Task {
         return (isDone ? "\u2713" : "\u2718"); //return tick or X symbols
     }
 
+    public void setIsDone (boolean isDone) {
+        this.isDone = isDone;
+    }
     public void markAsDone() {
         this.isDone = true;
         System.out.println("Nice! I've marked this task as done:");
         System.out.println("[" + getStatusIcon() + "] " + description);
     }
-
 
     public String toString() {
         return "[" + getStatusIcon() + "] " + this.description;

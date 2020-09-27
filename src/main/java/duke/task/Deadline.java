@@ -1,13 +1,15 @@
-package duke;
+package duke.task;
 
 public class Deadline extends Task {
+    public static final String DEADLINE_CATEGORY = "[D]";
+
     protected String by;
     protected String category;
 
     public Deadline(String description, String by) {
         super(description);
         this.by = by;
-        this.category = "[D]";
+        this.category = DEADLINE_CATEGORY;
     }
 
     public void setBy(String by) {

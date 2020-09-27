@@ -1,13 +1,15 @@
-package duke;
+package duke.task;
 
 public class Event extends Task {
+    public static final String EVENT_CATEGORY = "[E]";
+
     protected String at;
     protected String category;
 
     public Event(String description, String at) {
         super(description);
         this.at = at;
-        this.category = "[E]";
+        this.category = EVENT_CATEGORY;
     }
 
     public void setAt(String at) {
