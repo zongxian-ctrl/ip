@@ -1,5 +1,8 @@
 package duke.tasklist.tasks;
 
+/**
+ * Represents a task object in the TaskList
+ */
 public class Task {
     private static final String TICK_ICON = "\u2713";
     private static final String CROSS_ICON = "\u2718";
@@ -11,24 +14,47 @@ public class Task {
         this.isDone = false;
     }
 
+    /**
+     * Returns the correct icon based on isDone boolean.
+     *
+     * @return Tick/Cross icon.
+     */
     public String getStatusIcon() {
-        return (isDone ? TICK_ICON : CROSS_ICON); //return tick or X symbols
+        return (isDone ? TICK_ICON : CROSS_ICON);
     }
 
-    public void setIsDone (boolean isDone) {
+    /**
+     * Set the task isDone value to the boolean given.
+     *
+     * @param isDone boolean value to changed to.
+     */
+    public void setIsDone(boolean isDone) {
         this.isDone = isDone;
     }
 
+    /**
+     * Change the task isDone value to true.
+     */
     public void markAsDone() {
         this.isDone = true;
         System.out.println("Nice! I've marked this task as done:");
         System.out.println("[" + getStatusIcon() + "] " + description);
     }
 
+    /**
+     * Returns the tasks in a format for printing
+     *
+     * @return Formatted task.
+     */
     public String toString() {
         return "[" + getStatusIcon() + "] " + this.description;
     }
 
+    /**
+     * Returns the tasks information in the correct format for storage.
+     *
+     * @return Formatted task.
+     */
     public String writeFileFormat() {
         String status;
         if (this.isDone) {

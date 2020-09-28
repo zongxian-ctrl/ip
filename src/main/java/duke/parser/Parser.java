@@ -14,8 +14,16 @@ import duke.tasklist.exceptions.IllegalTaskCountException;
 
 import java.time.format.DateTimeParseException;
 
+/**
+ * Parses the user input into commands.
+ */
 public class Parser {
 
+    /**
+     * Parses user input into taskCategory for execution.
+     * @param userInput full user input string
+     * @return the command based on the user input
+     */
     public static Command parseCommand(String userInput) {
         String[] words = userInput.trim().split(" ", 2);
         final String taskCategory = words[0];
@@ -54,6 +62,11 @@ public class Parser {
         }
     }
 
+    /**
+     * Parses taskName in the context of the Deadline command.
+     * @param taskName full taskName string
+     * @return the prepared command
+     */
     private static Command prepareDeadlineCommand(String taskName) {
         String[] deadline = taskName.split("/by",2);
         String deadlineTask = deadline[0].trim();
@@ -61,6 +74,11 @@ public class Parser {
         return new DeadlineCommand(deadlineTask, by);
     }
 
+    /**
+     * Parses taskName in the context of the Event command.
+     * @param taskName full taskName string
+     * @return the prepared command
+     */
     private static Command prepareEventCommand(String taskName) {
         String[] event = taskName.split("/");
         String eventTask = event[0].trim();

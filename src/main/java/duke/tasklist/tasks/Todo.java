@@ -1,5 +1,8 @@
 package duke.tasklist.tasks;
 
+/**
+ * Represent a Task of type Todo
+ */
 public class Todo extends Task {
     public static final String TODO_CATEGORY = "[T]";
 

@@ -5,6 +5,9 @@ import duke.tasklist.exceptions.IllegalTaskCountException;
 import static duke.ui.TextUi.printLines;
 import static duke.ui.TextUi.showOnlyTask;
 
+/**
+ * Represents a command to mark a task as done.
+ */
 public class DoneCommand extends Command {
 
     public static final String COMMAND_WORD = "done";

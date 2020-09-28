@@ -13,6 +13,9 @@ import java.io.FileWriter;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * Represents a storage that can create, load and write to store Duke data.
+ */
 
 public class Storage {
     private static final String DONE_TRUE = "1";
@@ -29,6 +32,11 @@ public class Storage {
         }
     }
 
+    /**
+     * Creates a file/directory if DEFAULT_FILE_PATH does not exist.
+     *
+     * @throws FileNotFoundException if file not find.
+     */
     public void createFile() throws FileNotFoundException {
         file = new File(DEFAULT_FILE_PATH);
         if (!file.exists()) {
@@ -45,6 +53,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Loads the data from /data/duke.txt.
+     *
+     * @param taskList an taskList class that stores the imported data.
+     * @throws FileNotFoundException if file not found.
+     */
     public void loadSavedFile(TaskList taskList) throws FileNotFoundException {
         Scanner s = new Scanner(file);
         while (s.hasNext()) {
@@ -67,6 +81,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Converting the isDone valid in the user data.
+     *
+     * @param isDone represent the isDone value in the text file.
+     * @return This returns true when isDone = 1 and false otherwise.
+     */
     public boolean convertIsDone(String isDone) {
         if (isDone.equals(DONE_TRUE)) {
             return true;
@@ -75,6 +95,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Saves the current data in TaskList to the text file.
+     *
+     * @param taskList an TaskList class that stores the current data in the running program.
+     * @throws IOException if file not found
+     */
     public void writeToFile(TaskList taskList) throws IOException {
         FileWriter fw = new FileWriter(DEFAULT_FILE_PATH);
         try {
@@ -86,7 +112,5 @@ public class Storage {
             System.out.println("Unable to write to file.");
         }
     }
-
-
 }
 
