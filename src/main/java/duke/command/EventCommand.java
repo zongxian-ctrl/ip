@@ -2,9 +2,13 @@ package duke.command;
 
 import duke.tasklist.tasks.Event;
 
-import static duke.ui.TextUi.*;
 import static duke.ui.TextUi.printLines;
+import static duke.ui.TextUi.showTaskList;
+import static duke.ui.TextUi.showToUser;
 
+/**
+ * Represents the command to add an Event Task.
+ */
 public class EventCommand extends Command {
 
     public static final String COMMAND_WORD = "event";

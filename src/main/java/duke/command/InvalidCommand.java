@@ -1,5 +1,8 @@
 package duke.command;
 
+/**
+ * Represents an invalid command. Upon execution, products from feedback to the user.
+ */
 public class InvalidCommand extends Command {
 
     public final String feedbackToUser;

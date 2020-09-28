@@ -4,6 +4,9 @@ import duke.tasklist.tasks.Task;
 
 import static duke.ui.TextUi.*;
 
+/**
+ * Represents a command to list all the task in the TaskList to the user.
+ */
 public class ListCommand extends Command {
 
     public static final String COMMAND_WORD = "list";

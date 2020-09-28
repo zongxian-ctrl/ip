@@ -4,6 +4,9 @@ import duke.tasklist.tasks.Todo;
 
 import static duke.ui.TextUi.*;
 
+/**
+ * Represents the command to add a ToDo Task.
+ */
 public class ToDoCommand extends Command {
 
     public static final String COMMAND_WORD = "todo";
@@ -25,5 +28,4 @@ public class ToDoCommand extends Command {
         showTaskList(taskList.size());
         printLines();
     }
-
 }

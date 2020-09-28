@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import static duke.ui.TextUi.*;
 import static java.util.stream.Collectors.toList;
 
+/**
+ * Represents a command for finding an input String in the task's Description.
+ */
 public class FindCommand extends Command {
 
     public static final String COMMAND_WORD = "find";
@@ -42,5 +45,4 @@ public class FindCommand extends Command {
             showToUser("Unable to find \"" + filterString + "\" in your list.");
         }
     }
-
 }

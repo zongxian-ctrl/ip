@@ -1,5 +1,8 @@
 package duke.ui;
 
+/**
+ * Container for user visible messages.
+ */
 public class Messages {
 
     public static final String MESSAGE_WELCOME = "Hello! I'm Duke \nWhat can I do for you?";

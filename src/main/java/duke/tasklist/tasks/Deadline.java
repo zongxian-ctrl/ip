@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Represent a Task of type Deadline
+ */
 public class Deadline extends Task {
     public static final String DEADLINE_CATEGORY = "[D]";
 
@@ -15,14 +18,6 @@ public class Deadline extends Task {
         super(description);
         this.by = by;
         this.category = DEADLINE_CATEGORY;
-    }
-
-    public void setBy(LocalDate by) {
-        this.by = by;
-    }
-
-    public LocalDate getBy() {
-        return by;
     }
 
     @Override

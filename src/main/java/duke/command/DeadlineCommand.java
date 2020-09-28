@@ -8,6 +8,9 @@ import static duke.ui.TextUi.printLines;
 import static duke.ui.TextUi.showTaskList;
 import static duke.ui.TextUi.showToUser;
 
+/**
+ * Represents the command to add a Deadline Task.
+ */
 public class DeadlineCommand extends Command {
 
     public static final String COMMAND_WORD = "deadline";
@@ -28,5 +31,4 @@ public class DeadlineCommand extends Command {
         showTaskList(taskList.size());
         printLines();
     }
-
 }

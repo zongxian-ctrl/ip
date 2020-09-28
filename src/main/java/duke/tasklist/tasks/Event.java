@@ -1,5 +1,8 @@
 package duke.tasklist.tasks;
 
+/**
+ * Represent a Task of type Event.
+ */
 public class Event extends Task {
     public static final String EVENT_CATEGORY = "[E]";
 
@@ -10,14 +13,6 @@ public class Event extends Task {
         super(description);
         this.at = at;
         this.category = EVENT_CATEGORY;
-    }
-
-    public void setAt(String at) {
-        this.at = at;
-    }
-
-    public String getAt() {
-        return at;
     }
 
     @Override
