@@ -2,18 +2,21 @@ package duke.command;
 
 import duke.tasklist.tasks.Deadline;
 
-import static duke.ui.TextUi.*;
+import java.time.LocalDate;
+
 import static duke.ui.TextUi.printLines;
+import static duke.ui.TextUi.showTaskList;
+import static duke.ui.TextUi.showToUser;
 
 public class DeadlineCommand extends Command {
 
     public static final String COMMAND_WORD = "deadline";
     private final String deadlineTask;
-    private final String by;
+    private final LocalDate by;
 
     public DeadlineCommand(String deadlineTask, String by) {
         this.deadlineTask = deadlineTask;
-        this.by = by;
+        this.by = LocalDate.parse(by);
     }
 
     @Override

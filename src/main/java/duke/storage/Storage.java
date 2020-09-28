@@ -10,10 +10,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 
 public class Storage {
+    private static final String DONE_TRUE = "1";
     private static final String FILE_NAME = "duke.txt";
     private static final String FILE_DIRECTORY = "data";
     private static final String DEFAULT_FILE_PATH = "data/duke.txt";
@@ -58,7 +60,7 @@ public class Storage {
                 taskList.getTask((taskList.size()) - 1).setIsDone(convertIsDone(task[1].trim()));
                 break;
             case Deadline.DEADLINE_CATEGORY:
-                taskList.addTask(new Deadline(task[2].trim(), task[3].trim()));
+                taskList.addTask(new Deadline(task[2].trim(), LocalDate.parse(task[3].trim())));
                 taskList.getTask((taskList.size()) - 1).setIsDone(convertIsDone(task[1].trim()));
                 break;
             }
@@ -66,7 +68,7 @@ public class Storage {
     }
 
     public boolean convertIsDone(String isDone) {
-        if (isDone.equals("1")) {
+        if (isDone.equals(DONE_TRUE)) {
             return true;
         } else {
             return false;

@@ -1,28 +1,33 @@
 package duke.tasklist.tasks;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 public class Deadline extends Task {
     public static final String DEADLINE_CATEGORY = "[D]";
 
-    protected String by;
+    protected LocalDate by;
     protected String category;
 
-    public Deadline(String description, String by) {
+    public Deadline(String description, LocalDate by) {
         super(description);
         this.by = by;
         this.category = DEADLINE_CATEGORY;
     }
 
-    public void setBy(String by) {
+    public void setBy(LocalDate by) {
         this.by = by;
     }
 
-    public String getBy() {
+    public LocalDate getBy() {
         return by;
     }
 
     @Override
     public String toString() {
-        return this.category + super.toString() + " (" + by + ")";
+        return this.category + super.toString() + " (by: " + by.format(DateTimeFormatter.ofPattern("d MMM yyyy")) + ")";
     }
 
     @Override
