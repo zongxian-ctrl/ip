@@ -1,4 +1,4 @@
-package duke.task;
+package duke.tasklist.tasks;
 
 public class Event extends Task {
     public static final String EVENT_CATEGORY = "[E]";

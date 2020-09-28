@@ -1,6 +1,6 @@
 package duke.command;
 
-import duke.parser.IllegalTaskCountException;
+import duke.tasklist.exceptions.IllegalTaskCountException;
 
 import static duke.ui.TextUi.*;
 

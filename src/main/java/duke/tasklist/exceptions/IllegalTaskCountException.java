@@ -1,4 +1,4 @@
-package duke.parser;
+package duke.tasklist.exceptions;
 
 public class IllegalTaskCountException extends Exception {
 }

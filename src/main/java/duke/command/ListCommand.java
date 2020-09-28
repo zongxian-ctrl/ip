@@ -1,6 +1,6 @@
 package duke.command;
 
-import duke.task.Task;
+import duke.tasklist.tasks.Task;
 
 import static duke.ui.TextUi.*;
 
