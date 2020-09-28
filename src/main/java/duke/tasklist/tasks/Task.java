@@ -1,4 +1,4 @@
-package duke.task;
+package duke.tasklist.tasks;
 
 public class Task {
     protected String description;
@@ -16,6 +16,7 @@ public class Task {
     public void setIsDone (boolean isDone) {
         this.isDone = isDone;
     }
+
     public void markAsDone() {
         this.isDone = true;
         System.out.println("Nice! I've marked this task as done:");
@@ -34,5 +35,9 @@ public class Task {
             status = "0";
         }
         return status + " | " + this.description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

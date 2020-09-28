@@ -1,6 +1,6 @@
 package duke.command;
 
-import duke.task.Deadline;
+import duke.tasklist.tasks.Deadline;
 
 import static duke.ui.TextUi.*;
 import static duke.ui.TextUi.printLines;

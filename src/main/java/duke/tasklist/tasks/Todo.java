@@ -1,4 +1,4 @@
-package duke.task;
+package duke.tasklist.tasks;
 
 public class Todo extends Task {
     public static final String TODO_CATEGORY = "[T]";

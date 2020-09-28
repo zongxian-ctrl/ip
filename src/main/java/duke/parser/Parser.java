@@ -1,14 +1,7 @@
 package duke.parser;
 
-import duke.command.ByeCommand;
-import duke.command.Command;
-import duke.command.DeadlineCommand;
-import duke.command.DeleteCommand;
-import duke.command.DoneCommand;
-import duke.command.EventCommand;
-import duke.command.InvalidCommand;
-import duke.command.ListCommand;
-import duke.command.ToDoCommand;
+import duke.command.*;
+import duke.tasklist.exceptions.IllegalTaskCountException;
 
 public class Parser {
 
@@ -32,6 +25,8 @@ public class Parser {
                 return new DeleteCommand(taskName);
             case ByeCommand.COMMAND_WORD:
                 return new ByeCommand();
+            case FindCommand.COMMAND_WORD:
+                return new FindCommand(taskName);
             default:
                 return new InvalidCommand("Invalid command, please enter again");
             }

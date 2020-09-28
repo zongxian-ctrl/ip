@@ -1,4 +1,4 @@
-package duke.task;
+package duke.tasklist.tasks;
 
 public class Deadline extends Task {
     public static final String DEADLINE_CATEGORY = "[D]";

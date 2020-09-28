@@ -1,6 +1,6 @@
 package duke.command;
 
-import duke.task.Event;
+import duke.tasklist.tasks.Event;
 
 import static duke.ui.TextUi.*;
 import static duke.ui.TextUi.printLines;

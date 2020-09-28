@@ -4,7 +4,7 @@ import duke.command.ByeCommand;
 import duke.command.Command;
 import duke.parser.Parser;
 import duke.storage.Storage;
-import duke.task.*;
+import duke.tasklist.TaskList;
 import duke.ui.Messages;
 import duke.ui.TextUi;
 

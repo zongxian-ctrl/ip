@@ -1,6 +1,6 @@
 package duke.command;
 
-import duke.task.TaskList;
+import duke.tasklist.TaskList;
 
 public class Command {
 
