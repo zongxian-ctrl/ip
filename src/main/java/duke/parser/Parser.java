@@ -1,7 +1,18 @@
 package duke.parser;
 
-import duke.command.*;
+import duke.command.ByeCommand;
+import duke.command.Command;
+import duke.command.DeadlineCommand;
+import duke.command.DeleteCommand;
+import duke.command.DoneCommand;
+import duke.command.EventCommand;
+import duke.command.FindCommand;
+import duke.command.InvalidCommand;
+import duke.command.ListCommand;
+import duke.command.ToDoCommand;
 import duke.tasklist.exceptions.IllegalTaskCountException;
+
+import java.time.format.DateTimeParseException;
 
 public class Parser {
 
@@ -38,13 +49,15 @@ public class Parser {
             return new InvalidCommand("The entered number is either under or over the number of tasks");
         } catch (IllegalTaskCountException e) {
             return new InvalidCommand("Please select a valid number from 1 onwards");
+        } catch (DateTimeParseException e) {
+            return new InvalidCommand("Please enter in this format /by yyyy-mm-dd");
         }
     }
 
     private static Command prepareDeadlineCommand(String taskName) {
-        String[] deadline = taskName.split("/");
+        String[] deadline = taskName.split("/by",2);
         String deadlineTask = deadline[0].trim();
-        String by = deadline[1].replaceFirst(" ", ": ");
+        String by = deadline[1].trim();
         return new DeadlineCommand(deadlineTask, by);
     }
 
