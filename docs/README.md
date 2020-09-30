@@ -6,16 +6,16 @@ that helps to manage tasks such as todo, deadline and events.
 ## Table of Contents
 * Quick start 
 * Features 
-  * [Adding a todo task: `todo`](#adding-a-todo-task:) 
-  * Adding a deadline task: `deadline`
-  * Adding a event task: `event`
-  * Listing all tasks: `list`
-  * Marking a task as done:`done`  
-  * Deleting a task: `delete`
-  * Finding a tasks with a keyword:`find`  
-  * Exiting Duke: `bye`
-  * Saving the data 
-* Command summary 
+  * [Adding a todo task: `todo`](#adding-a-todo-task:-todo) 
+  * [Adding a deadline task: `deadline`](#adding-a-deadline-task:-`deadline`)
+  * [Adding a event task: `event`](#adding-a-event-task:-`event`)
+  * [Listing all tasks: `list`](#listing-all-tasks:-`list`)
+  * [Marking a task as done: `done`](#marking-a-task-as-done:-`done`)
+  * [Deleting a task: `delete`](#deleting-a-task:-`delete`)
+  * [Finding a tasks with a keyword: `find`](#finding-a-tasks-with-a-keyword:-`find`)
+  * [Exiting Duke: `bye`](#exiting-duke:0`bye`)
+  * [Saving the data](#saving-the-data)
+* [Command summary](#command-summary)
 
 
 ## Quick Start 
@@ -66,7 +66,7 @@ Shows a list of all tasks in the task list.
 
 Format: `list`
 
-### Marking a task as done:`done`
+### Marking a task as done: `done`
 
 Marks the task which is specified by the index in the `list` function, as done. 
 
@@ -82,7 +82,7 @@ Format: `delete INDEX`
 
 Example: `delete 3` 
 
-### Finding a tasks with a keyword:`find`  
+### Finding a tasks with a keyword: `find`  
 
 Find a task's description in the task list that matches the entered 'keyword'. 
 
