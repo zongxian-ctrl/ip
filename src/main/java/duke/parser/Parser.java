@@ -21,6 +21,7 @@ public class Parser {
 
     /**
      * Parses user input into taskCategory for execution.
+     *
      * @param userInput full user input string
      * @return the command based on the user input
      */
@@ -64,11 +65,12 @@ public class Parser {
 
     /**
      * Parses taskName in the context of the Deadline command.
+     *
      * @param taskName full taskName string
      * @return the prepared command
      */
     private static Command prepareDeadlineCommand(String taskName) {
-        String[] deadline = taskName.split("/by",2);
+        String[] deadline = taskName.split("/by", 2);
         String deadlineTask = deadline[0].trim();
         String by = deadline[1].trim();
         return new DeadlineCommand(deadlineTask, by);
@@ -76,6 +78,7 @@ public class Parser {
 
     /**
      * Parses taskName in the context of the Event command.
+     *
      * @param taskName full taskName string
      * @return the prepared command
      */
