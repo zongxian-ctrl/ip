@@ -98,7 +98,7 @@ Find a task's description in the task list that matches the entered 'keyword'.
 
 ### Exiting Duke: `bye` 
 
-> Exits the program. 
+Exits the program. 
 
 > Format: `bye` 
 
