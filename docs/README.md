@@ -23,7 +23,7 @@ that helps to manage tasks such as todo, deadline and events.
 1. Ensure you have Java `11` or above installed in your Computer.
 2. Download the latest duke.jar file from github and place into an empty folder. 
 3. Open `cmd` or `terminal` and navigate to the folder of the duke.jar file.
-4. Run command `java -jar duke.jar`
+4. Run command `java -jar duke.jar`.
 5. If there is no previous file, Duke will create a new text file at `/data/duke.txt`. 
 6. Refer to the Features below for details of each command. 
 
@@ -32,8 +32,8 @@ that helps to manage tasks such as todo, deadline and events.
 **Take Note:**
   ```
   1. Commands entered are case-sensitive. 
-  2. Words in `UPPER_CASE` are the parameters to be supplied by the user.
-  3. Data will be saved to after every command and before exiting the application by entering `bye` command. 
+  2. Words in UPPER_CASE are the parameters to be supplied by the user.
+  3. Data will be saved after every command and before exiting the application by entering `bye` command. 
  ```
   
 ### Adding a todo task: `todo`
