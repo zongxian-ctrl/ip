@@ -6,14 +6,14 @@ that helps to manage tasks such as todo, deadline and events.
 ## Table of Contents
 * Quick start 
 * Features 
-  * [Adding a todo task: `todo`](#adding-a-todo-task:-todo) 
-  * [Adding a deadline task: `deadline`](#adding-a-deadline-task:-`deadline`)
-  * [Adding a event task: `event`](#adding-a-event-task:-`event`)
-  * [Listing all tasks: `list`](#listing-all-tasks:-`list`)
-  * [Marking a task as done: `done`](#marking-a-task-as-done:-`done`)
-  * [Deleting a task: `delete`](#deleting-a-task:-`delete`)
-  * [Finding a tasks with a keyword: `find`](#finding-a-tasks-with-a-keyword:-`find`)
-  * [Exiting Duke: `bye`](#exiting-duke:0`bye`)
+  * [Adding a todo task: `todo`](#adding-a-todo-task-todo) 
+  * [Adding a deadline task: `deadline`](#adding-a-deadline-task-deadline)
+  * [Adding a event task: `event`](#adding-a-event-task-event)
+  * [Listing all tasks: `list`](#listing-all-tasks-list)
+  * [Marking a task as done: `done`](#marking-a-task-as-done-done)
+  * [Deleting a task: `delete`](#deleting-a-task-delete)
+  * [Finding a tasks with a keyword: `find`](#finding-a-tasks-with-a-keyword-find)
+  * [Exiting Duke: `bye`](#exiting-duke-bye)
   * [Saving the data](#saving-the-data)
 * [Command summary](#command-summary)
 
