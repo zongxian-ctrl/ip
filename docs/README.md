@@ -40,66 +40,74 @@ that helps to manage tasks such as todo, deadline and events.
 
 Adds a 'todo' task to the task list. 
 
-Format: `todo TASK_DESCRIPTION`
+> Format: `todo TASK_DESCRIPTION`
 
-Example: `todo English Essay`
+> Example: `todo English Essay`
+
 
 ### Adding a deadline task: `deadline`
 
 Adds a 'deadline' task to the task list. 
 
-Format: `deadline TASK_DESCRIPTION /by DATE (in yyyy-mm-dd format).`
-Example: `deadline English Essay /by 2020-12-11`
+> Format: `deadline TASK_DESCRIPTION /by DATE (in yyyy-mm-dd format).`
+
+> Example: `deadline English Essay /by 2020-12-11`
 
 
 ### Adding a event task: `event`
 
 Adds a 'event' task to the task list. 
 
-Format: `event TASK_DESCRIPTION /at DATE_TIME` 
+> Format: `event TASK_DESCRIPTION /at DATE_TIME` 
 
-Example: `event English Essay /at Monday` 
+> Example: `event English Essay /at Monday` 
 
 ### Listing all tasks: `list`
 
 Shows a list of all tasks in the task list. 
 
-Format: `list`
+> Format: `list`
+
 
 ### Marking a task as done: `done`
 
 Marks the task which is specified by the index in the `list` function, as done. 
 
-Format: `done INDEX`
+> Format: `done INDEX`
 
-Example: `done 2`
+> Example: `done 2`
+
 
 ### Deleting a task: `delete`
 
 Removes a task from the tasklist specified by the index in the `list` functions. 
 
-Format: `delete INDEX`
+> Format: `delete INDEX`
 
-Example: `delete 3` 
+> Example: `delete 3` 
+
 
 ### Finding a tasks with a keyword: `find`  
 
 Find a task's description in the task list that matches the entered 'keyword'. 
 
-Format: `find KEY_WORD`
+> Format: `find KEY_WORD`
 
-Example: `find Essay` 
+> Example: `find Essay` 
+
 
 ### Exiting Duke: `bye` 
 
-Exits the program. 
+> Exits the program. 
 
-Format: `bye` 
+> Format: `bye` 
+
 
 ### Saving the data 
 
 Duke's data are saved in the text file automatically after any command that changes the data. 
 Hence, there is no need to save the data manually.
+
 
 ## Command Summary 
 
