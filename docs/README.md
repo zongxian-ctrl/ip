@@ -86,14 +86,14 @@ Marks the task which is specified by the index in the `list` function, as done.
 Removes a task from the tasklist specified by the index in the `list` functions. 
 
 > Format: `delete INDEX`
- * Deletes the delete at the specified `INDEX`.
+ * Deletes the task at the specified `INDEX`.
  * The index refers to the index number shown in the `list` command.
  * The index must be a positive integer 1,2,3, ...
  
-> Example: `delete 3`, deletes the 3rd task in the task line. 
+> Example: `delete 3`, deletes the 3rd task in the task list. 
 
 
-### Finding a tasks with a keyword: `find`  
+### Finding tasks with a keyword: `find`  
 
 Find a task's description in the task list that matches the entered 'keyword'. 
 
