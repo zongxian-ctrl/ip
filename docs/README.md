@@ -74,8 +74,11 @@ Shows a list of all tasks in the task list.
 Marks the task which is specified by the index in the `list` function, as done. 
 
 > Format: `done INDEX`
-
-> Example: `done 2`
+ * Marks the task at the specified `INDEX` as done. 
+ * The index refers to the index number shown in the `list` command. 
+ * Rhe index must be a positive integer 1,2,3, ...
+ 
+> Example: `done 2`, marks the 2nd task in the task list as done.  
 
 
 ### Deleting a task: `delete`
@@ -83,8 +86,11 @@ Marks the task which is specified by the index in the `list` function, as done.
 Removes a task from the tasklist specified by the index in the `list` functions. 
 
 > Format: `delete INDEX`
-
-> Example: `delete 3` 
+ * Deletes the delete at the specified `INDEX`.
+ * The index refers to the index number shown in the `list` command.
+ * The index must be a positive integer 1,2,3, ...
+ 
+> Example: `delete 3`, deletes the 3rd task in the task line. 
 
 
 ### Finding a tasks with a keyword: `find`  
@@ -92,6 +98,8 @@ Removes a task from the tasklist specified by the index in the `list` functions.
 Find a task's description in the task list that matches the entered 'keyword'. 
 
 > Format: `find KEY_WORD`
+ * The search is case-insensitive. 
+ * Only the description of the task is searched. 
 
 > Example: `find Essay` 
 
