@@ -98,7 +98,7 @@ Removes a task from the tasklist specified by the index in the `list` functions.
 Find a task's description in the task list that matches the entered 'keyword'. 
 
 > Format: `find KEY_WORD`
- * The search is case-insensitive. 
+ * The search is case-sensitive. 
  * Only the description of the task is searched. 
 
 > Example: `find Essay` 
